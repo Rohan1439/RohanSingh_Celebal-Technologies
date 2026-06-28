@@ -1,1 +1,207 @@
 
+# 🚗 Tesla Deliveries & Production Analysis (2015–2025)
+
+> **An End-to-End Machine Learning Pipeline for Predicting Tesla Vehicle Deliveries using Regression Models and Time Series Forecasting**
+
+---
+
+## 📖 Project Overview
+
+This project implements a complete **Machine Learning pipeline** using Tesla's deliveries and production dataset spanning **2015–2025**. The workflow covers data exploration, feature engineering, predictive modeling, model optimization, statistical validation, and time-series forecasting to analyze delivery trends and estimate future demand.
+
+The project demonstrates the complete lifecycle of a supervised machine learning workflow, from raw data analysis to forecasting and model evaluation.
+
+---
+
+## 📊 Dataset Information
+
+| Attribute           | Details                               |
+| ------------------- | ------------------------------------- |
+| **Dataset**         | Tesla Deliveries & Production Dataset |
+| **Time Period**     | 2015 – 2025                           |
+| **Records**         | 2640                                  |
+| **Features**        | 12                                    |
+| **Target Variable** | `Estimated_Deliveries`                |
+| **Problem Type**    | Regression + Time Series Forecasting  |
+
+---
+
+# 🏗️ Machine Learning Pipeline
+
+```text
+                 Tesla Deliveries Dataset
+                           │
+                           ▼
+                 Data Loading & Inspection
+                           │
+                           ▼
+              Missing Value & Duplicate Check
+                           │
+                           ▼
+            Exploratory Data Analysis (EDA)
+                           │
+                           ▼
+                 Feature Engineering
+      (Label Encoding + Lag + Rolling Mean)
+                           │
+                           ▼
+          Chronological Train/Test Split (80:20)
+                           │
+             ┌─────────────┴─────────────┐
+             ▼                           ▼
+      Linear Regression          Random Forest
+             │                           │
+             ▼                           ▼
+      Cross Validation          GridSearchCV
+             │                           │
+             └─────────────┬─────────────┘
+                           ▼
+               Feature Importance Analysis
+                           │
+                           ▼
+                 ADF Stationarity Test
+                           │
+                           ▼
+                ARIMA Time Series Forecast
+                           │
+                           ▼
+              Forecast & Model Comparison
+```
+
+---
+
+# 🔍 Exploratory Data Analysis
+
+The notebook includes the following visualizations to understand the dataset and identify patterns:
+
+| Visualization            | Purpose                                         |
+| ------------------------ | ----------------------------------------------- |
+| Deliveries by Model      | Compare average deliveries across Tesla models  |
+| Deliveries by Region     | Analyze regional delivery distribution          |
+| Correlation Heatmap      | Identify relationships among numerical features |
+| Production vs Deliveries | Examine production-delivery dependency          |
+| Time Trend Analysis      | Study yearly delivery trends                    |
+
+---
+
+# ⚙️ Feature Engineering
+
+The following transformations were performed before model training:
+
+| Feature             | Description                                        |
+| ------------------- | -------------------------------------------------- |
+| Label Encoding      | Encoded `Region`, `Model`, and `Source_Type`       |
+| Deliveries_Lag1     | Previous delivery value used as a temporal feature |
+| Rolling_Mean_3      | Three-period moving average of deliveries          |
+| Chronological Split | 80% Training • 20% Testing (Time-aware split)      |
+
+---
+
+# 🤖 Machine Learning Models
+
+| Model                   | Purpose                                       |
+| ----------------------- | --------------------------------------------- |
+| Linear Regression       | Baseline regression model                     |
+| Random Forest Regressor | Ensemble model with hyperparameter tuning     |
+| ARIMA                   | Time-series forecasting for future deliveries |
+
+---
+
+# 📈 Model Optimization
+
+Random Forest was optimized using **GridSearchCV** with multiple combinations of:
+
+* Number of Estimators
+* Maximum Tree Depth
+* Cross Validation
+
+The optimized model was further analyzed using **Feature Importance**, highlighting the variables contributing most to delivery prediction.
+
+---
+
+# 📉 Time Series Analysis
+
+To understand delivery trends over time, the project includes:
+
+* Augmented Dickey-Fuller (ADF) Stationarity Test
+* Time Series Validation
+* ARIMA Model
+* 12-Month Delivery Forecast
+* Forecast Visualization
+
+---
+
+# 📋 Model Evaluation
+
+The predictive models were evaluated using standard regression metrics:
+
+| Metric                      | Description                              |
+| --------------------------- | ---------------------------------------- |
+| **MAE**                     | Mean Absolute Error                      |
+| **RMSE**                    | Root Mean Squared Error                  |
+| **R² Score**                | Coefficient of Determination             |
+| **5-Fold Cross Validation** | Model generalization performance         |
+| **Feature Importance**      | Identification of influential predictors |
+
+---
+
+# 🛠️ Technology Stack
+
+| Category                | Tools               |
+| ----------------------- | ------------------- |
+| Programming Language    | Python              |
+| Data Processing         | Pandas, NumPy       |
+| Visualization           | Matplotlib, Seaborn |
+| Machine Learning        | Scikit-learn        |
+| Time Series Analysis    | Statsmodels         |
+| Development Environment | Google Colab Notebook    |
+
+---
+
+# 📂 Repository Structure
+
+```text
+📦 Tesla-Deliveries-Analysis
+│
+├── week2_<name>.ipynb
+├── tesla_deliveries_dataset_2015_2025.csv
+├── README.md
+└── requirements.txt
+```
+
+---
+
+# 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone <repository-url>
+cd <repository-name>
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn statsmodels
+```
+
+
+---
+
+# 🎯 Project Highlights
+
+* ✔ Complete End-to-End ML Pipeline
+* ✔ Exploratory Data Analysis (EDA)
+* ✔ Feature Engineering
+* ✔ Chronological Data Splitting
+* ✔ Linear Regression
+* ✔ Random Forest with GridSearchCV
+* ✔ Feature Importance Analysis
+* ✔ ADF Stationarity Test
+* ✔ ARIMA Forecasting
+* ✔ Model Comparison & Performance Evaluation
+
+---
+
+> **Developed as part of the Week 2 Machine Learning Internship assignment at Celebal Technologies using the Tesla Deliveries & Production Dataset (2015–2025).**
